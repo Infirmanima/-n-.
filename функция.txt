@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> increaseVectorByN(vector<int> vec, int n) {
+    for (int& num : vec) {
+        num += n;
+    }
+    return vec;
+}
+
+void printVector(const vector<int>& vec) {
+    for (int num : vec) {
+        cout << num << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    setlocale(0, "");
+    vector<int> vec;
+    int i;
+    cout << "Введите количество элементов в векторе: ";
+    cin >> i;
+
+    for (int j = 0; j < i; j++) {
+        int num;
+        cout << "Элемент " << j + 1 << ": ";
+        cin >> num;
+        vec.push_back(num);
+    }
+    int n;
+    cout << "Введите число на которое увеличиться вектор: ";
+    cin >> n;
+    vector<int> result = increaseVectorByN(vec, n);
+    cout << "Изначальный вектор: ";
+    printVector(vec);
+    cout << "Изменненый вектор на " << n << ": ";
+    printVector(result);
+    return 0;
+}

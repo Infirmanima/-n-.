@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+void test_increaseVectorByN() {
+    vector<int> vec = {1, 2, 3};
+    int n = 5;
+    vector<int> expected = {6, 7, 8};
+    vector<int>result = increaseVectorByN(vec, n);
+    if (result == expected) {
+        cout << "Test Passed!" << endl;
+    } else {
+        cout << "Test Failed!" << endl;
+    }
+}
+
+int main() {
+    test_increaseVectorByN();
+
+    return 0;
+}
