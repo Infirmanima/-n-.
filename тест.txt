@@ -1,20 +1,28 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-void test_increaseVectorByN() {
-    vector<int> vec = {1, 2, 3};
-    int n = 5;
-    vector<int> expected = {6, 7, 8};
-    vector<int>result = increaseVectorByN(vec, n);
-    if (result == expected) {
-        cout << "Test Passed!" << endl;
-    } else {
-        cout << "Test Failed!" << endl;
-    }
+#include "gtest/gtest.h"
+#include "yourheader.h"using namespace std;
+
+TEST(increaseVectorByNTest, IncreaseBy5) {
+vector<int> input = { 1, 2, 3, 4, 5 };
+vector<int> expected = { 6, 7, 8, 9, 10 };
+
+ASSERT_EQ(expected, increaseVector(input, 5));
 }
 
-int main() {
-    test_increaseVectorByN();
+TEST(increaseVectorByNTest, IncreaseByNegative3) {
+vector<int> input = { 6, 7, 8, 9, 10 };
+vector<int> expected = { 3, 4, 5, 6, 7 };
 
-    return 0;
+ASSERT_EQ(expected, increaseVector(input, -3));
+}
+
+TEST(increaseVectorByNTest, IncreaseBy0) {
+vector<int> input = { 5, 5, 5, 5, 5 };
+vector<int> expected = { 5, 5, 5, 5, 5 };
+
+ASSERT_EQ(expected, increaseVector(input, 0));
+}
+
+int main(int argc, char** argv) {
+::testing::InitGoogleTest(&argc, argv);
+return RUN_ALL_TESTS();
 }
